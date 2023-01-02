@@ -1,0 +1,36 @@
+scheduler:
+  name: scheduler # Dask scheduler name.
+  enabled: true # Enable/disable scheduler.
+  image:
+    repository: "ghcr.io/dask/dask" # Container image repository.
+    tag: "2022.10.0" # Container image tag.
+  resources:  # Scheduler pod resources. See `values.yaml` for example values.
+    limits:
+      cpu: 2
+      memory: 5G
+    requests:
+      cpu: 2
+      memory: 5G
+
+worker:
+  name: worker # Dask worker name.
+  image:
+    repository: "ghcr.io/dask/dask" # Container image repository.
+    tag: "2022.10.0" # Container image tag.
+  replicas: 3 # Number of workers.
+  env: # Environment variables. See `values.yaml` for example values.
+    - name: EXTRA_PIP_PACKAGES
+      value: s3fs pyarrow numpy --upgrade
+  serviceAccountName: dask-worker
+  resources: # Worker pod resources. See `values.yaml` for example values.
+    limits:
+      cpu: 2
+      memory: 32G
+    requests:
+      cpu: 2
+      memory: 32G
+
+jupyter:
+  name: jupyter # Jupyter name.
+  enabled: false # Enable/disable the bundled Jupyter notebook.
+

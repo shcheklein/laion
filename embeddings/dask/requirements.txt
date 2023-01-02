@@ -1,0 +1,8 @@
+wheel
+numpy
+dask==2022.10.0
+dask_kubernetes==2022.10.0
+pandas
+pyarrow
+s3fs
+lz4

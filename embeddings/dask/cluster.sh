@@ -30,3 +30,8 @@ if [ "$EXISTS" == "Not found" ]; then
         --region us-east-2
 fi
 
+VPC_ID=`eksctl get cluster --region us-east-2 --name dask -o json | jq -r '.[].ResourcesVpcConfig.VpcId'`
+export TF_VAR_vpc_id=$VPC_ID
+
+terraform init
+terraform apply

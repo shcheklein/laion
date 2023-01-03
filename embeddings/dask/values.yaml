@@ -24,11 +24,11 @@ worker:
   serviceAccountName: dask-worker
   resources: # Worker pod resources. See `values.yaml` for example values.
     limits:
-      cpu: 2
-      memory: 32G
+      cpu: 1
+      memory: 6G
     requests:
-      cpu: 2
-      memory: 32G
+      cpu: 1
+      memory: 6G
 
 jupyter:
   name: jupyter # Jupyter name.

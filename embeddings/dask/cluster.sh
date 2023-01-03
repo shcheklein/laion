@@ -4,7 +4,7 @@ set -uex
 set -o pipefail
 
 CLUSTER=dask
-EXISTS=$(eksctl get cluster | grep "$CLUSTER" || echo -n "Not found")
+EXISTS=$(eksctl get cluster --region us-east-2 | grep "$CLUSTER" || echo -n "Not found")
 
 if [ "$EXISTS" == "Not found" ]; then
     # create cluster with fargate backend

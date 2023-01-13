@@ -7,10 +7,10 @@ scheduler:
   resources:  # Scheduler pod resources. See `values.yaml` for example values.
     limits:
       cpu: 2
-      memory: 5G
+      memory: 16G
     requests:
       cpu: 2
-      memory: 5G
+      memory: 16G
 
 worker:
   name: worker # Dask worker name.
@@ -25,10 +25,10 @@ worker:
   resources: # Worker pod resources. See `values.yaml` for example values.
     limits:
       cpu: 1
-      memory: 6G
+      memory: 5G
     requests:
       cpu: 1
-      memory: 6G
+      memory: 5G
 
 jupyter:
   name: jupyter # Jupyter name.
